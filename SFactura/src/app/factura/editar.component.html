@@ -1,0 +1,89 @@
+<header-tag></header-tag>
+<br> <br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2>{{title}}</h2>
+                </div>
+                <div class="p10">
+                    <form  autocomplete="off" id="form-ventas" (submit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label>NIT</label>
+                                <input type="text" class="form-control" placeholder="Nit" name="nit" [(ngModel)]="venta.nit" value="{{nit}}" >
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" placeholder="Nombre" name="nombre" [(ngModel)]="venta.nombreFactura" value="{{nombreFactura}}">
+                            </div>
+                            <div class="col-lg-4">
+                                <label>Fecha</label>
+                                <input type="date" class="form-control" placeholder="Fecha" name="fecha" [(ngModel)]="venta.fecha" value="{{fecha}}">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <label>Producto</label>
+                                <input type="text" class="form-control" name="producto" placeholder="Producto" [(ngModel)]="detalle.nombreProducto">
+                            </div>
+                            <div class="col-lg-2">
+                                <label>Cantidad</label>
+                                <input type="text" class="form-control" name="cantidad" placeholder="cantidad" [(ngModel)]="detalle.cantidad">
+                            </div>
+                            <div class="col-lg-2">
+                                <label>Precio</label>
+                                <input type="text" class="form-control" name="precio" placeholder="precio" [(ngModel)]="detalle.precio">
+                            </div>
+                            <div class="col-lg-1">
+                                <label>Total</label>
+                                <input type="text" class="form-control" name="total" disabled [(ngModel)]="detalle.cantidad * detalle.precio" >
+                            </div>
+                            <div class="col-lg-2">
+                                <button style="margin-top: 23px;" class="btn btn-success" type="button" (click)="addDetalle()"> <i class="fas fa-plus-circle" ></i> Agregar</button>
+                            </div>
+                        </div>
+                        <hr> 
+                        <br>     
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60%;">Producto</th>
+                                    <th class="text-center" style="width: 10%;">Cantidad</th>
+                                    <th class="text-center" style="width: 10%;">P/U</th>
+                                    <th class="text-center" style="width: 10%;">MontoTotal</th>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let detalle of objDetalles;let i=index;">
+                                    <td>{{detalle.nombreProducto}}</td>
+                                    <td class="text-center">{{detalle.cantidad}}</td>
+                                    <td class="text-right">{{detalle.precio}}</td>
+                                    <td class="text-right">{{detalle.totalLinea}}</td>
+                                    <td class="text-center"><button type="button" class="btnDel" title="Eliminar" (click)="delDetalle(i)"><i class="fas fa-trash-alt"></i></button></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-right" colspan="3">Total:</th>
+                                    <th class="text-right">{{total.toFixed(2)}}</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-right" colspan="5"><br>
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fas fa-file-alt"></i>
+                                            Actualizar Venta
+                                        </button><br><br>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

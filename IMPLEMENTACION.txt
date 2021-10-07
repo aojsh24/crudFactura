@@ -1,0 +1,12 @@
+IMPLEMENTACIÓN
+1.	El directorio APIFAC corresponde a los servicios REST desarrollados en C#, el directorio SFactura que corresponde a la aplicación desarrollada en Angular y el archivo dbfacturatd.sql corresponde a la base de datos utilizada.
+2.	APIFAC en C#: se desarrollo utilizando el ORM de C# para el procesamiento de datos, como base de datos se utilizó MySQL, sin embargo, es posible utilizar otro gestor de bade de datos cambiando el método de options (options.UseMySQL) en la linea 36 del archivo Startup.cs por el gestor de base de datos a utilizar. Para SQL Server seria options.UseSqlServer, posteriormente cambiar en appsettings.json el enlace de conexión (ConnectionStrings.Connection), y luego ejecutar el proyecto.
+3.	Crear una base de datos en MySQL o SQL Server con el nombre dbfacturatd.sql y crear las siguientes credenciales, usuario: us_dbfacturatd y contraseña: 123456
+4.	Exportar el script de la base de datos que se adjunta (archivo dbfacturatd.sql).
+5.	Debe tener instalado angular, en caso de no tenerlo debe ejecutar en una ventana de comando la instrucción npm install -g @angular/cli
+6.	Verificar el puerto que se utilizará para la configuración de angular.
+7.	Abrir el directorio en una ventana de comanda y ejecutar el comando npm install, para la instalación de dependencias.
+8.	Ejecutar el comando ng serve --o  para levantar el proyecto hacia el navegador.
+Cualquier duda puede comunicarse con mi persona
+Abelino Oj Shicay
+42854243 – aojsh24@gmail.com

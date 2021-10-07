@@ -1,0 +1,64 @@
+<header-tag></header-tag>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card print">
+                <div class="card-body text-center">
+                    <h2>Factura</h2>
+                </div>
+                <div class="p10">
+                    <table class="w100">
+                        <tr>
+                            <td class="text-right">No. {{id}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Fecha: {{fecha}}</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table class="table table-bordered" >
+                        <tr>
+                            <td width="100">NIT:</td>
+                            <td>{{nit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td>{{nombreFactura}}</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th class="text-center">Cantidad</th>
+                                <th class="text-center">P/U</th>
+                                <th class="text-center">MontoTotal</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="objDetalles">
+                            <tr *ngFor="let detalle of objDetalles" >
+                                <td>{{detalle.nombreProducto}}</td>
+                                <td class="text-center">{{detalle.cantidad}}</td>
+                                <td class="text-right">{{detalle.precio.toFixed(2)}}</td>
+                                <td class="text-right">{{detalle.totalLinea.toFixed(2)}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th class="text-right" colspan="3">Total:</th>
+                                <th class="text-right">{{total.toFixed(2)}}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="text-center">
+    <button type="button" class="btn btn-outline-dark" (click)="onPrint()">Imprimir</button>
+</div>
